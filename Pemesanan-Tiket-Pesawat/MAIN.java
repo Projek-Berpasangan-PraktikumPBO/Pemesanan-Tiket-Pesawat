@@ -3,7 +3,7 @@ import java.util.Scanner;
 /**
  * Write a description of class MAIN here.
  *
- * @author (your name)
+ * @author Aditya Rizki Ramadhan & Aulia Muzhaffar
  * @version (a version number or a date)
  */
 public class MAIN {
