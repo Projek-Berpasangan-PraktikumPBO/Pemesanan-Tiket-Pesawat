@@ -30,10 +30,9 @@ public class MAIN {
     public void Penerbangan() {
         System.out.println("+===================================+");
         System.out.println("| Penerbangan yang tersedia :       |");
-        System.out.println("| * Banda Aceh - Jakarta           |");
-        System.out.println("| * Banda Aceh - Batam             |");
-        System.out.println("| * Banda Aceh - Medan             |");
-        System.out.println("+===================================+");
+        System.out.println("| * Banda Aceh - Jakarta            |");
+        System.out.println("| * Banda Aceh - Batam              |");
+        System.out.println("| * Banda Aceh - Medan              |");
     }
 
     public void menuTiket() {
@@ -91,7 +90,11 @@ public class MAIN {
 
                     switch (tiket) {
                         case 1:
+                            economy.setHarga(2500000);
+                            System.out.println("Harga tiket : " + economy.getHargaTiket());
                             economy.jumlah_tiket();
+                            System.out.println("Mendapat potongan diskon sebesar Rp" + economy.getDiskon());
+                            System.out.println("+===================================+");
                             break;
                         case 2:
                             bisnis.jumlah_tiket();
