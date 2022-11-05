@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.target=T_Economy
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ T_Economy\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=T_Economy()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ T_Economy\r\n
+comment2.params=harga
+comment2.target=T_Economy(int)
+comment3.params=
+comment3.target=int\ jumlah_tiket()
+comment3.text=\r\n\ An\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\ your\ own\r\n\r\n\ @param\ \ y\ \ a\ sample\ parameter\ for\ a\ method\r\n\ @return\ \ \ \ the\ sum\ of\ x\ and\ y\r\n
+comment4.params=
+comment4.target=double\ getDiskon()
+comment5.params=diskon
+comment5.target=void\ setDiskon(double)
+comment6.params=
+comment6.target=double\ generateDiskon()
+comment7.params=
+comment7.target=int\ getTotalRun()
+comment8.params=harga\ jumlah
+comment8.target=double\ getTotal(int,\ int)
+numComments=9
