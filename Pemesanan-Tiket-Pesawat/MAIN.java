@@ -113,13 +113,14 @@ public class MAIN {
                             break;
                         case 4:
                             System.out.print("Masukkan tiket yang ingin anda hapus:");
-                            String delTiket = in.nextLine();
+                            String delTiket = in.next();
                             System.out.print("Jumlah yang ingin dihapus :");
                             int jumTiket = in.nextInt();
                             if (delTiket.equalsIgnoreCase("ekonomi")) {
-                                economy.setHarga(economy.getHargaTiket() - economy.deletePesanan(jumTiket));
+                                economy.setTotalRun(economy.getTotalRun() - economy.deletePesanan(jumTiket));
+                                System.out.println(economy.getHargaTiket());
                             } else {
-
+                                System.out.println("error");
                             }
                             break;
                         case 5:

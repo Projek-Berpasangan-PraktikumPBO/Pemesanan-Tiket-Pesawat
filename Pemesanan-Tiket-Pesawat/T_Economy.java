@@ -9,7 +9,7 @@ import java.util.Collections;
  * @version (a version number or a date)
  */
 public class T_Economy extends Tiket {
-    private int totalRun = 0;
+    private double totalRun = 0;
     private double diskon;
     Scanner in = new Scanner(System.in);
 
@@ -71,8 +71,12 @@ public class T_Economy extends Tiket {
         return disk;
     }
 
-    public int getTotalRun() {
+    public double getTotalRun() {
         return this.totalRun;
+    }
+
+    public void setTotalRun(double Subtotal) {
+        this.totalRun = Subtotal;
     }
 
     public double getTotal(double harga, int jumlah) {
