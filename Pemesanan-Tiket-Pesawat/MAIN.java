@@ -81,8 +81,10 @@ public class MAIN {
             if (pilbang == 1) {
                 do {
                     economy.setHarga(2500000);
-                    bisnis.setHarga(6500000);
-                    firstClass.setHarga(550000000);
+                    bisnis.setHarga(15000000);
+                    firstClass.setHarga(50000000);
+
+                    int jumlah;
 
                     System.out.println("| Penerbangan Banda Aceh - Jakarta  |");
                     System.out.println("+===================================+");
@@ -96,20 +98,23 @@ public class MAIN {
                     switch (tiket) {
                         case 1:
                             System.out.println("Harga tiket : " + economy.getHargaTiket());
-                            economy.jumlah_tiket();
-                            System.out.println("Mendapat potongan diskon sebesar Rp" + economy.getDiskon());
+                            System.out.print("Masukkan jumlah tiket yang ingin dipesan : ");
+                            jumlah = in.nextInt();
+                            economy.jumlah_tiket(jumlah);
                             System.out.println("+===================================+");
                             break;
                         case 2:
                             System.out.println("Harga tiket : " + bisnis.getHargaTiket());
-                            bisnis.jumlah_tiket();
-                            System.out.println("Mendapat potongan diskon sebesar Rp" + bisnis.getDiskon());
+                            System.out.print("Masukkan jumlah tiket yang ingin dipesan : ");
+                            jumlah = in.nextInt();
+                            bisnis.jumlah_tiket(jumlah);
                             System.out.println("+===================================+");
                             break;
                         case 3:
                             System.out.println("Harga tiket : " + firstClass.getHargaTiket());
-                            firstClass.jumlah_tiket();
-                            System.out.println("Mendapat potongan diskon sebesar Rp" + firstClass.getDiskon());
+                            System.out.print("Masukkan jumlah tiket yang ingin dipesan : ");
+                            jumlah = in.nextInt();
+                            firstClass.jumlah_tiket(jumlah);
                             System.out.println("+===================================+");
                             break;
                         case 4:
@@ -159,20 +164,23 @@ public class MAIN {
                     switch (tiket) {
                         case 1:
                             System.out.println("Harga tiket : " + economy.getHargaTiket());
-                            economy.jumlah_tiket();
-                            System.out.println("Mendapat potongan diskon sebesar Rp" + economy.getDiskon());
+                            System.out.print("Masukkan jumlah tiket yang ingin dipesan : ");
+                            int jumlah = in.nextInt();
+                            economy.jumlah_tiket(jumlah);
                             System.out.println("+===================================+");
                             break;
                         case 2:
                             System.out.println("Harga tiket : " + bisnis.getHargaTiket());
-                            bisnis.jumlah_tiket();
-                            System.out.println("Mendapat potongan diskon sebesar Rp" + bisnis.getDiskon());
+                            System.out.print("Masukkan jumlah tiket yang ingin dipesan : ");
+                            jumlah = in.nextInt();
+                            bisnis.jumlah_tiket(jumlah);
                             System.out.println("+===================================+");
                             break;
                         case 3:
                             System.out.println("Harga tiket : " + firstClass.getHargaTiket());
-                            firstClass.jumlah_tiket();
-                            System.out.println("Mendapat potongan diskon sebesar Rp" + firstClass.getDiskon());
+                            System.out.print("Masukkan jumlah tiket yang ingin dipesan : ");
+                            jumlah = in.nextInt();
+                            firstClass.jumlah_tiket(jumlah);
                             System.out.println("+===================================+");
                             break;
                         case 4:
@@ -215,20 +223,23 @@ public class MAIN {
                     switch (tiket) {
                         case 1:
                             System.out.println("Harga tiket : " + economy.getHargaTiket());
-                            economy.jumlah_tiket();
-                            System.out.println("Mendapat potongan diskon sebesar Rp" + economy.getDiskon());
+                            System.out.print("Masukkan jumlah tiket yang ingin dipesan : ");
+                            int jumlah = in.nextInt();
+                            economy.jumlah_tiket(jumlah);
                             System.out.println("+===================================+");
                             break;
                         case 2:
                             System.out.println("Harga tiket : " + bisnis.getHargaTiket());
-                            bisnis.jumlah_tiket();
-                            System.out.println("Mendapat potongan diskon sebesar Rp" + bisnis.getDiskon());
+                            System.out.print("Masukkan jumlah tiket yang ingin dipesan : ");
+                            jumlah = in.nextInt();
+                            bisnis.jumlah_tiket(jumlah);
                             System.out.println("+===================================+");
                             break;
                         case 3:
                             System.out.println("Harga tiket : " + firstClass.getHargaTiket());
-                            firstClass.jumlah_tiket();
-                            System.out.println("Mendapat potongan diskon sebesar Rp" + firstClass.getDiskon());
+                            System.out.print("Masukkan jumlah tiket yang ingin dipesan : ");
+                            jumlah = in.nextInt();
+                            firstClass.jumlah_tiket(jumlah);
                             System.out.println("+===================================+");
                             break;
                         case 4:

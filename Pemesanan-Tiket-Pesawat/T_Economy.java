@@ -8,7 +8,6 @@ import java.util.Scanner;
  */
 public class T_Economy extends Tiket {
     private double totalRun = 0;
-    private double diskon;
     Scanner in = new Scanner(System.in);
 
     /**
@@ -32,37 +31,9 @@ public class T_Economy extends Tiket {
      * 
      * @return jumlah tiket yang dipsan
      */
-    public int jumlah_tiket() {
-        System.out.println("Masukkan jumlah tiket yang ingin dipesan");
-        int jumlah = in.nextInt();
+    public void jumlah_tiket(int jumlah) {
         super.setJumlahTiket(jumlah);
         getTotal(super.getHargaTiket(), super.getJumlahTiket());
-        return jumlah;
-    }
-
-    /**
-     * method ini untuk mengembalikan banyaknya diskon yang
-     * didapat.
-     * 
-     * @return hasilDiskon
-     */
-    public double getDiskon() {
-        double hasilDiskon;
-        if (jumlah_tiket() == 2) {
-            hasilDiskon = (this.diskon * super.getHargaTiket()) / 100;
-        } else {
-            hasilDiskon = 0;
-        }
-        return hasilDiskon;
-    }
-
-    /**
-     * method untuk menyimpan nilai diskon
-     * 
-     * @param diskon
-     */
-    public void setDiskon(double diskon) {
-        this.diskon = diskon;
     }
 
     /**
@@ -90,7 +61,7 @@ public class T_Economy extends Tiket {
      * @param jumlah
      */
     public double getTotal(double harga, int jumlah) {
-        double totalSementara = (harga * jumlah) - getDiskon();
+        double totalSementara = (harga * jumlah);
         System.out.println("Subtotal: " + totalSementara);
         totalRun += totalSementara;
         return totalSementara;
@@ -103,7 +74,7 @@ public class T_Economy extends Tiket {
      * @return
      */
     public double deletePesanan(int jumlah) {
-        double temp = (getHargaTiket() * jumlah) + getDiskon();
+        double temp = (getHargaTiket() * jumlah);
         return temp;
     }
 }
