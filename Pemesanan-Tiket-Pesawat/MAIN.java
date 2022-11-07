@@ -40,7 +40,8 @@ public class MAIN {
         System.out.println("| 1. Tiket Ekonomy                  |");
         System.out.println("| 2. Tiket Bisnis Class             |");
         System.out.println("| 3. Tiket First Class              |");
-        System.out.println("| 4. Selesai                        |");
+        System.out.println("| 4. Hapus Pesanan                  |");
+        System.out.println("| 5. Selesai                        |");
     }
 
     public static void main(String[] args) {
@@ -97,12 +98,31 @@ public class MAIN {
                             System.out.println("+===================================+");
                             break;
                         case 2:
+                            bisnis.setHarga(3500000);
+                            System.out.println("Harga tiket : " + bisnis.getHargaTiket());
                             bisnis.jumlah_tiket();
+                            System.out.println("Mendapat potongan diskon sebesar Rp" + bisnis.getDiskon());
+                            System.out.println("+===================================+");
                             break;
                         case 3:
+                            firstClass.setHarga(5000000);
+                            System.out.println("Harga tiket : " + firstClass.getHargaTiket());
                             firstClass.jumlah_tiket();
+                            System.out.println("Mendapat potongan diskon sebesar Rp" + firstClass.getDiskon());
+                            System.out.println("+===================================+");
                             break;
                         case 4:
+                            System.out.print("Masukkan tiket yang ingin anda hapus:");
+                            String delTiket = in.nextLine();
+                            System.out.print("Jumlah yang ingin dihapus :");
+                            int jumTiket = in.nextInt();
+                            if (delTiket.equalsIgnoreCase("ekonomi")) {
+                                economy.setHarga(economy.getHargaTiket() - economy.deletePesanan(jumTiket));
+                            } else {
+
+                            }
+                            break;
+                        case 5:
                             m.lagi = false;
                             totalBayar = economy.getTotalRun() + bisnis.getTotalRun() + firstClass.getTotalRun();
                             System.out.println(totalBayar);

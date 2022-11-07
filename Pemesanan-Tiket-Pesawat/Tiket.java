@@ -5,41 +5,39 @@
  * @author (your name here)
  * @version (version number or date here)
  */
-public abstract class Tiket
-{
-    private int harga_tiket;
+public abstract class Tiket {
+    private double harga_tiket;
     private int jumlahTiket;
 
     /**
      * An example of a method - replace this comment with your own
      *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * @param y a sample parameter for a method
+     * @return the sum of x and y
      */
-    public Tiket(){
-        
+    public Tiket() {
+
     }
-    
-    public Tiket(int hargaTiket){
+
+    public Tiket(Double hargaTiket) {
         this.harga_tiket = hargaTiket;
     }
-    
-    public int getHargaTiket()
-    {
+
+    public double getHargaTiket() {
         return this.harga_tiket;
     }
-    
-    public void setHarga(int hargaBaru){
+
+    public void setHarga(double hargaBaru) {
         this.harga_tiket = hargaBaru;
     }
-    
-    public int getJumlahTiket(){
+
+    public int getJumlahTiket() {
         return this.jumlahTiket;
     }
-    
-    public void setJumlahTiket(int jumlahTiket){
+
+    public void setJumlahTiket(int jumlahTiket) {
         this.jumlahTiket = jumlahTiket;
     }
-    
-    abstract double getTotal(int harga, int jumlah);
+
+    abstract double getTotal(double harga, int jumlah);
 }
