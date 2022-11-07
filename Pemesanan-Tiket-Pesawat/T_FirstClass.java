@@ -15,7 +15,7 @@ public class T_FirstClass extends Tiket {
 
     /**
      * turunan dari kelas tiket
-     * ini  constuctor T_First_Class untuk membuat objek tanpa parameter
+     * ini constuctor T_First_Class untuk membuat objek tanpa parameter
      */
     public T_FirstClass() {
         super(1000000.0);
@@ -23,7 +23,8 @@ public class T_FirstClass extends Tiket {
 
     /**
      * turunan dari kelas tiket
-     * ini  constuctor T_First_Class untuk membuat objek dengan parameter
+     * ini constuctor T_First_Class untuk membuat objek dengan parameter
+     * 
      * @param harga
      */
     public T_FirstClass(Double harga) {
@@ -51,11 +52,12 @@ public class T_FirstClass extends Tiket {
      * @return hasilDiskon
      */
     public double getDiskon() {
-        if (generateDiskon() == 0) {
+        int p = generateDiskon();
+        if (p == 0) {
             setDiskon(0);
-        } else if (generateDiskon() == 1) {
+        } else if (p == 1) {
             setDiskon(10.0);
-        } else if (generateDiskon() == 2) {
+        } else if (p == 2) {
             setDiskon(20.0);
         } else {
             setDiskon(0);
@@ -66,6 +68,7 @@ public class T_FirstClass extends Tiket {
 
     /**
      * method untuk menyimpan nilai diskon
+     * 
      * @param diskon
      */
     public void setDiskon(double diskon) {
@@ -73,11 +76,13 @@ public class T_FirstClass extends Tiket {
     }
 
     /**
-     * method untuk memberikan nilai acak pada costumer apakah costumer ini mendapatkan diskon apa tidak.
+     * method untuk memberikan nilai acak pada costumer apakah costumer ini
+     * mendapatkan diskon apa tidak.
+     * 
      * @return disk
      */
-    public double generateDiskon() {
-        double disk;
+    public int generateDiskon() {
+        int disk;
         ArrayList<Integer> list = new ArrayList<Integer>();
         for (int i = 0; i < 3; i++) {
             list.add(i);
@@ -91,14 +96,16 @@ public class T_FirstClass extends Tiket {
 
     /**
      * method untuk menyimpan total harga tiket
+     * 
      * @return total harga tiket
      */
     public double getTotalRun() {
         return this.totalRun;
     }
 
-    /** 
+    /**
      * method untuk menyimpan total harga tiket setelah dijumlahkan
+     * 
      * @param Subtotal
      */
     public void setTotalRun(double Subtotal) {
@@ -107,7 +114,8 @@ public class T_FirstClass extends Tiket {
 
     /**
      * method ini untuk menjumlahkan harga tiket setelah diskon
-     * @param  harga 
+     * 
+     * @param harga
      * @param jumlah
      */
     public double getTotal(double harga, int jumlah) {
@@ -119,6 +127,7 @@ public class T_FirstClass extends Tiket {
 
     /**
      * Method ini menghapus pesananan tiket
+     * 
      * @param jumlah
      * @return
      */

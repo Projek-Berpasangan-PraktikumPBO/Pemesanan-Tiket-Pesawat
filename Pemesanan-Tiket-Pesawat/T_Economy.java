@@ -49,11 +49,12 @@ public class T_Economy extends Tiket {
      * @return hasilDiskon
      */
     public double getDiskon() {
-        if (generateDiskon() == 0) {
+        int p = generateDiskon();
+        if (p == 0) {
             setDiskon(0);
-        } else if (generateDiskon() == 1) {
+        } else if (p == 1) {
             setDiskon(10.0);
-        } else if (generateDiskon() == 2) {
+        } else if (p == 2) {
             setDiskon(20.0);
         } else {
             setDiskon(0);
@@ -72,13 +73,13 @@ public class T_Economy extends Tiket {
     }
 
     /**
-     * method untuk memberikan nilai acak pada costumer apakah costumer ini
+     * method untuk memberikan nilai acak pada customer apakah customer ini
      * mendapatkan diskon apa tidak.
      * 
      * @return diskon
      */
-    public double generateDiskon() {
-        double disk;
+    public int generateDiskon() {
+        int disk;
         ArrayList<Integer> list = new ArrayList<Integer>();
         for (int i = 0; i < 3; i++) {
             list.add(i);
