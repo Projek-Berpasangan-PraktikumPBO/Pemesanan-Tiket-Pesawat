@@ -1,6 +1,4 @@
 import java.util.Scanner;
-import java.util.ArrayList;
-import java.util.Collections;
 
 /**
  * kelas T_Economy untuk objek tiket economy
@@ -49,17 +47,12 @@ public class T_Economy extends Tiket {
      * @return hasilDiskon
      */
     public double getDiskon() {
-        int p = generateDiskon();
-        if (p == 0) {
-            setDiskon(0);
-        } else if (p == 1) {
-            setDiskon(10.0);
-        } else if (p == 2) {
-            setDiskon(20.0);
+        double hasilDiskon;
+        if (jumlah_tiket() == 2) {
+            hasilDiskon = (this.diskon * super.getHargaTiket()) / 100;
         } else {
-            setDiskon(0);
+            hasilDiskon = 0;
         }
-        double hasilDiskon = (this.diskon * super.getHargaTiket()) / 100;
         return hasilDiskon;
     }
 
@@ -70,25 +63,6 @@ public class T_Economy extends Tiket {
      */
     public void setDiskon(double diskon) {
         this.diskon = diskon;
-    }
-
-    /**
-     * method untuk memberikan nilai acak pada customer apakah customer ini
-     * mendapatkan diskon apa tidak.
-     * 
-     * @return diskon
-     */
-    public int generateDiskon() {
-        int disk;
-        ArrayList<Integer> list = new ArrayList<Integer>();
-        for (int i = 0; i < 3; i++) {
-            list.add(i);
-        }
-
-        Collections.shuffle(list);
-
-        disk = list.get(0);
-        return disk;
     }
 
     /**
