@@ -1,21 +1,19 @@
 
 /**
- * Write a description of class Pelanggan here.
+ * kelas Pelanggan untuk objek pelanggan
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Aditya Rizki Ramadhan & Aulia Muzhaffar
+ * @version 1.0
  */
 public class Pelanggan
 {
-    // instance variables - replace the example below with your own
     private int x;
 
     /**
-     * Constructor for objects of class Pelanggan
+     * Constructor untuk objek Pelanggan tanpa paramter
      */
     public Pelanggan()
     {
-        // initialise instance variables
         x = 0;
     }
 

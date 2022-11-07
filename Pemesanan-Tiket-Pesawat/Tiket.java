@@ -1,9 +1,9 @@
 
 /**
- * Abstract class Tiket - write a description of the class here
+ * Abstract 
  *
- * @author aditP
- * @version (version number or date here)
+ * @author Aditya Rizki Ramadhan & Aulia Muzhaffar
+ * @version 1.0
  */
 public abstract class Tiket {
     private double harga_tiket;

@@ -3,34 +3,38 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- * Write a description of class T_Economy here.
+ * kelas T_FirstClass untuk objek tiket first class
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Aditya Rizki Ramadhan & Aulia Muzhaffar
+ * @version 1.0
  */
 public class T_FirstClass extends Tiket {
-    private int totalRun = 0;
+    private double totalRun = 0;
     private double diskon;
     Scanner in = new Scanner(System.in);
 
     /**
-     * Constructor for objects of class T_Economy
+     * turunan dari kelas tiket
+     * ini  constuctor T_First_Class untuk membuat objek tanpa parameter
      */
     public T_FirstClass() {
-        // initialise instance variables
         super(1000000.0);
     }
 
+    /**
+     * turunan dari kelas tiket
+     * ini  constuctor T_First_Class untuk membuat objek dengan parameter
+     * @param harga
+     */
     public T_FirstClass(Double harga) {
-        // initialise instance variables
         super(harga);
     }
 
     /**
-     * An example of a method - replace this comment with your own
+     * method ini untuk menyimpan jumlah tiket yang dipesan
      *
-     * @param y a sample parameter for a method
-     * @return the sum of x and y
+     * 
+     * @return jumlah tiket yang dipesan
      */
     public int jumlah_tiket() {
         System.out.println("Masukkan jumlah tiket yang ingin dipesan");
@@ -40,6 +44,12 @@ public class T_FirstClass extends Tiket {
         return jumlah;
     }
 
+    /**
+     * method ini untuk mengembalikan banyaknya diskon yang
+     * didapat.
+     * 
+     * @return hasilDiskon
+     */
     public double getDiskon() {
         if (generateDiskon() == 0) {
             setDiskon(0);
@@ -54,10 +64,18 @@ public class T_FirstClass extends Tiket {
         return hasilDiskon;
     }
 
+    /**
+     * method untuk menyimpan nilai diskon
+     * @param diskon
+     */
     public void setDiskon(double diskon) {
         this.diskon = diskon;
     }
 
+    /**
+     * method untuk memberikan nilai acak pada costumer apakah costumer ini mendapatkan diskon apa tidak.
+     * @return disk
+     */
     public double generateDiskon() {
         double disk;
         ArrayList<Integer> list = new ArrayList<Integer>();
@@ -71,10 +89,27 @@ public class T_FirstClass extends Tiket {
         return disk;
     }
 
-    public int getTotalRun() {
+    /**
+     * method untuk menyimpan total harga tiket
+     * @return total harga tiket
+     */
+    public double getTotalRun() {
         return this.totalRun;
     }
 
+    /** 
+     * method untuk menyimpan total harga tiket setelah dijumlahkan
+     * @param Subtotal
+     */
+    public void setTotalRun(double Subtotal) {
+        this.totalRun = Subtotal;
+    }
+
+    /**
+     * method ini untuk menjumlahkan harga tiket setelah diskon
+     * @param  harga 
+     * @param jumlah
+     */
     public double getTotal(double harga, int jumlah) {
         double totalSementara = (harga * jumlah) - getDiskon();
         System.out.println("Subtotal: " + totalSementara);
@@ -82,6 +117,11 @@ public class T_FirstClass extends Tiket {
         return totalSementara;
     }
 
+    /**
+     * Method ini menghapus pesananan tiket
+     * @param jumlah
+     * @return
+     */
     public double deletePesanan(int jumlah) {
         double temp = (getHargaTiket() * jumlah) + getDiskon();
         return temp;

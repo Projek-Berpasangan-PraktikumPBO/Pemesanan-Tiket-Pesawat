@@ -1,32 +1,24 @@
 import java.util.Scanner;
 
 /**
- * Write a description of class MAIN here.
+ * kelas Main untuk objek Main berfungsi untuk menjalankan semua kelas
  *
  * @author Aditya Rizki Ramadhan & Aulia Muzhaffar
- * @version (a version number or a date)
+ * @version 1.0
  */
 public class MAIN {
-    // instance variables - replace the example below with your own
     private boolean lagi;
 
     /**
-     * Constructor for objects of class MAIN
+     * Constructor untuk objek kelas MAIN
      */
     public MAIN() {
         lagi = true;
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param y a sample parameter for a method
-     * @return the sum of x and y
+     * Method untuk menampilkan jadwal penerbangan yang tersedia
      */
-    public void lagi() {
-
-    }
-
     public void Penerbangan() {
         System.out.println("+===================================+");
         System.out.println("| Penerbangan yang tersedia :       |");
@@ -35,6 +27,9 @@ public class MAIN {
         System.out.println("| * Banda Aceh - Medan              |");
     }
 
+    /**
+     * Method untuk menampilkan pilahan tiket
+     */
     public void menuTiket() {
         System.out.println("| Pilihan Tiket :                   |");
         System.out.println("| 1. Tiket Ekonomy                  |");
@@ -44,6 +39,10 @@ public class MAIN {
         System.out.println("| 5. Selesai                        |");
     }
 
+    /**
+     * method main yang akan menjalankan semua kode
+     * @param args
+     */
     public static void main(String[] args) {
         T_Economy economy = new T_Economy();
         T_Bisnis bisnis = new T_Bisnis();
