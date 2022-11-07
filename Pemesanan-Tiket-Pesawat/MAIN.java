@@ -35,12 +35,11 @@ public class MAIN {
         System.out.println("| 1. Tiket Ekonomy                  |");
         System.out.println("| 2. Tiket Bisnis Class             |");
         System.out.println("| 3. Tiket First Class              |");
-        System.out.println("| 4. Hapus Pesanan                  |");
-        System.out.println("| 5. Selesai                        |");
     }
 
     /**
      * method main yang akan menjalankan semua kode
+     * 
      * @param args
      */
     public static void main(String[] args) {
@@ -81,30 +80,96 @@ public class MAIN {
 
             if (pilbang == 1) {
                 do {
+                    economy.setHarga(2500000);
+                    bisnis.setHarga(6500000);
+                    firstClass.setHarga(550000000);
+
                     System.out.println("| Penerbangan Banda Aceh - Jakarta  |");
                     System.out.println("+===================================+");
                     m.menuTiket();
+                    System.out.println("| 4. Hapus Pesanan                  |");
+                    System.out.println("| 5. Selesai                        |");
                     System.out.println("+===================================+");
                     System.out.print("Masukkan pilihan : ");
                     int tiket = in.nextInt();
 
                     switch (tiket) {
                         case 1:
-                            economy.setHarga(2500000);
                             System.out.println("Harga tiket : " + economy.getHargaTiket());
                             economy.jumlah_tiket();
                             System.out.println("Mendapat potongan diskon sebesar Rp" + economy.getDiskon());
                             System.out.println("+===================================+");
                             break;
                         case 2:
-                            bisnis.setHarga(3500000);
                             System.out.println("Harga tiket : " + bisnis.getHargaTiket());
                             bisnis.jumlah_tiket();
                             System.out.println("Mendapat potongan diskon sebesar Rp" + bisnis.getDiskon());
                             System.out.println("+===================================+");
                             break;
                         case 3:
-                            firstClass.setHarga(5000000);
+                            System.out.println("Harga tiket : " + firstClass.getHargaTiket());
+                            firstClass.jumlah_tiket();
+                            System.out.println("Mendapat potongan diskon sebesar Rp" + firstClass.getDiskon());
+                            System.out.println("+===================================+");
+                            break;
+                        case 4:
+                            m.menuTiket();
+                            System.out.print("Masukkan tiket yang ingin anda hapus:");
+                            int delTiket = in.nextInt();
+                            System.out.print("Jumlah yang ingin dihapus :");
+                            int jumTiket = in.nextInt();
+                            if (delTiket == 1) {
+                                economy.setTotalRun(economy.getTotalRun() - economy.deletePesanan(jumTiket));
+                                System.out.println(economy.getHargaTiket());
+                            } else if (delTiket == 2) {
+                                bisnis.setTotalRun(bisnis.getTotalRun() - bisnis.deletePesanan(jumTiket));
+                                System.out.println(bisnis.getHargaTiket());
+                            } else if (delTiket == 3) {
+                                firstClass.setTotalRun(firstClass.getTotalRun() - firstClass.deletePesanan(jumTiket));
+                                System.out.println(firstClass.getHargaTiket());
+                            } else {
+                                System.out.println("error");
+                            }
+                            break;
+                        case 5:
+                            m.lagi = false;
+                            totalBayar = economy.getTotalRun() + bisnis.getTotalRun() + firstClass.getTotalRun();
+                            System.out.println(totalBayar);
+                            System.out.println("Terimakasi sudah percaya pada maskapai kami");
+                            break;
+                        default:
+                            System.out.println("Anda memasukkan opsi yang salah");
+                    }
+                } while (m.lagi);
+            } else if (pilbang == 2) {
+                do {
+                    economy.setHarga(2300000);
+                    bisnis.setHarga(14500000);
+                    firstClass.setHarga(50000000);
+
+                    System.out.println("| Penerbangan Banda Aceh - Batam    |");
+                    System.out.println("+===================================+");
+                    m.menuTiket();
+                    System.out.println("| 4. Hapus Pesanan                  |");
+                    System.out.println("| 5. Selesai                        |");
+                    System.out.println("+===================================+");
+                    System.out.print("Masukkan pilihan : ");
+                    int tiket = in.nextInt();
+
+                    switch (tiket) {
+                        case 1:
+                            System.out.println("Harga tiket : " + economy.getHargaTiket());
+                            economy.jumlah_tiket();
+                            System.out.println("Mendapat potongan diskon sebesar Rp" + economy.getDiskon());
+                            System.out.println("+===================================+");
+                            break;
+                        case 2:
+                            System.out.println("Harga tiket : " + bisnis.getHargaTiket());
+                            bisnis.jumlah_tiket();
+                            System.out.println("Mendapat potongan diskon sebesar Rp" + bisnis.getDiskon());
+                            System.out.println("+===================================+");
+                            break;
+                        case 3:
                             System.out.println("Harga tiket : " + firstClass.getHargaTiket());
                             firstClass.jumlah_tiket();
                             System.out.println("Mendapat potongan diskon sebesar Rp" + firstClass.getDiskon());
@@ -132,55 +197,53 @@ public class MAIN {
                             System.out.println("Anda memasukkan opsi yang salah");
                     }
                 } while (m.lagi);
-            } else if (pilbang == 2) {
-                do {
-                    System.out.println("| Penerbangan Banda Aceh - Batam    |");
-                    System.out.println("+===================================+");
-                    m.menuTiket();
-                    System.out.println("+===================================+");
-                    System.out.print("Masukkan pilihan : ");
-                    int tiket = in.nextInt();
-
-                    switch (tiket) {
-                        case 1:
-                            economy.jumlah_tiket();
-                            break;
-                        case 2:
-                            bisnis.jumlah_tiket();
-                            break;
-                        case 3:
-                            firstClass.jumlah_tiket();
-                            break;
-                        case 4:
-                            m.lagi = false;
-                            totalBayar = economy.getTotalRun() + bisnis.getTotalRun() + firstClass.getTotalRun();
-                            System.out.println(totalBayar);
-                            System.out.println("Terimakasi sudah percaya pada maskapai kami");
-                            break;
-                        default:
-                            System.out.println("Anda memasukkan opsi yang salah");
-                    }
-                } while (m.lagi);
             } else if (pilbang == 3) {
                 do {
+                    economy.setHarga(1500000);
+                    bisnis.setHarga(15000000);
+                    firstClass.setHarga(30000000);
+
                     System.out.println("| Penerbangan Banda Aceh - Medan    |");
                     System.out.println("+===================================+");
                     m.menuTiket();
+                    System.out.println("| 4. Hapus Pesanan                  |");
+                    System.out.println("| 5. Selesai                        |");
                     System.out.println("+===================================+");
                     System.out.print("Masukkan pilihan : ");
                     int tiket = in.nextInt();
 
                     switch (tiket) {
                         case 1:
+                            System.out.println("Harga tiket : " + economy.getHargaTiket());
                             economy.jumlah_tiket();
+                            System.out.println("Mendapat potongan diskon sebesar Rp" + economy.getDiskon());
+                            System.out.println("+===================================+");
                             break;
                         case 2:
+                            System.out.println("Harga tiket : " + bisnis.getHargaTiket());
                             bisnis.jumlah_tiket();
+                            System.out.println("Mendapat potongan diskon sebesar Rp" + bisnis.getDiskon());
+                            System.out.println("+===================================+");
                             break;
                         case 3:
+                            System.out.println("Harga tiket : " + firstClass.getHargaTiket());
                             firstClass.jumlah_tiket();
+                            System.out.println("Mendapat potongan diskon sebesar Rp" + firstClass.getDiskon());
+                            System.out.println("+===================================+");
                             break;
                         case 4:
+                            System.out.print("Masukkan tiket yang ingin anda hapus:");
+                            String delTiket = in.next();
+                            System.out.print("Jumlah yang ingin dihapus :");
+                            int jumTiket = in.nextInt();
+                            if (delTiket.equalsIgnoreCase("ekonomi")) {
+                                economy.setTotalRun(economy.getTotalRun() - economy.deletePesanan(jumTiket));
+                                System.out.println(economy.getHargaTiket());
+                            } else {
+                                System.out.println("error");
+                            }
+                            break;
+                        case 5:
                             m.lagi = false;
                             totalBayar = economy.getTotalRun() + bisnis.getTotalRun() + firstClass.getTotalRun();
                             System.out.println(totalBayar);

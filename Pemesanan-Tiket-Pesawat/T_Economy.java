@@ -22,6 +22,7 @@ public class T_Economy extends Tiket {
 
     /**
      * Constructor untuk objek t_Economy dengan paramter
+     * 
      * @param harga
      */
     public T_Economy(Double harga) {
@@ -44,6 +45,7 @@ public class T_Economy extends Tiket {
     /**
      * method ini untuk mengembalikan banyaknya diskon yang
      * didapat.
+     * 
      * @return hasilDiskon
      */
     public double getDiskon() {
@@ -62,6 +64,7 @@ public class T_Economy extends Tiket {
 
     /**
      * method untuk menyimpan nilai diskon
+     * 
      * @param diskon
      */
     public void setDiskon(double diskon) {
@@ -69,7 +72,9 @@ public class T_Economy extends Tiket {
     }
 
     /**
-     * method untuk memberikan nilai acak pada costumer apakah costumer ini mendapatkan diskon apa tidak.
+     * method untuk memberikan nilai acak pada costumer apakah costumer ini
+     * mendapatkan diskon apa tidak.
+     * 
      * @return diskon
      */
     public double generateDiskon() {
@@ -87,22 +92,26 @@ public class T_Economy extends Tiket {
 
     /**
      * method untuk menyimpan total harga tiket
+     * 
      * @return total harga tiket
      */
     public double getTotalRun() {
         return this.totalRun;
     }
 
-    /** 
+    /**
      * method untuk menyimpan total harga tiket setelah dijumlahkan
+     * 
      * @param Subtotal
      */
     public void setTotalRun(double Subtotal) {
         this.totalRun = Subtotal;
     }
+
     /**
      * method ini untuk menjumlahkan harga tiket setelah diskon
-     * @param  harga 
+     * 
+     * @param harga
      * @param jumlah
      */
     public double getTotal(double harga, int jumlah) {
@@ -114,6 +123,7 @@ public class T_Economy extends Tiket {
 
     /**
      * Method ini menghapus pesananan tiket
+     * 
      * @param jumlah
      * @return
      */
