@@ -2,7 +2,7 @@
 /**
  * Abstract class Tiket - write a description of the class here
  *
- * @author (your name here)
+ * @author adit
  * @version (version number or date here)
  */
 public abstract class Tiket {
