@@ -5,27 +5,39 @@
  * @author Aditya Rizki Ramadhan & Aulia Muzhaffar
  * @version 1.0
  */
-public class Pelanggan
-{
-    private int x;
+public class Pelanggan {
+    private double totalBayar;
+    private int totalTiket;
 
     /**
      * Constructor untuk objek Pelanggan tanpa paramter
      */
-    public Pelanggan()
-    {
-        x = 0;
+    public Pelanggan() {
+
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * Constructor untuk objek Pelanggan tanpa paramter
      */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    public Pelanggan(double totalBayar, int totalTiket) {
+        this.totalBayar = totalBayar;
+        this.totalTiket = totalTiket;
+    }
+
+    public void setBill(double totalBayar, int totalTiket) {
+        System.out.println("");
+    }
+
+    public String kodeBill() {
+        String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "0123456789" + "abcdefghijklmnopqrstuvxyz";
+        StringBuilder sb = new StringBuilder(12);
+
+        for (int i = 0; i < 12; i++) {
+            int index = (int) (AlphaNumericString.length() * Math.random());
+
+            sb.append(AlphaNumericString.charAt(index));
+        }
+
+        return sb.toString();
     }
 }
