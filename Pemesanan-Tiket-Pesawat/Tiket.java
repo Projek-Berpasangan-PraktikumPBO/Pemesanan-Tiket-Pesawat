@@ -1,12 +1,12 @@
 
 /**
- * Abstract 
+ * Abstract
  *
  * @author Aditya Rizki Ramadhan & Aulia Muzhaffar
  * @version 1.0
  */
 public abstract class Tiket {
-    private double harga_tiket;
+    private int harga_tiket;
     private int jumlahTiket;
 
     /**
@@ -17,31 +17,36 @@ public abstract class Tiket {
 
     }
 
-    /**method ini untuk mendapatkan nilai harga tiket
+    /**
+     * method ini untuk mendapatkan nilai harga tiket
+     * 
      * @param hargaTiket
      */
-    public Tiket(Double hargaTiket) {
+    public Tiket(int hargaTiket) {
         this.harga_tiket = hargaTiket;
     }
 
-    /** 
+    /**
      * Method untuk mendapatkan/mengembalikan harga tiket
+     * 
      * @return harga_tiket
      */
-    public double getHargaTiket() {
+    public int getHargaTiket() {
         return this.harga_tiket;
     }
 
     /**
      * method untuk menmasukkan/menampung harga baru
+     * 
      * @param hargaBaru
      */
-    public void setHarga(double hargaBaru) {
+    public void setHarga(int hargaBaru) {
         this.harga_tiket = hargaBaru;
     }
 
     /**
      * method mengembalikan jumlah tiket
+     * 
      * @return jummlah tiket
      */
     public int getJumlahTiket() {
@@ -50,6 +55,7 @@ public abstract class Tiket {
 
     /**
      * Method untuk menampung jumlahtiket
+     * 
      * @param jumlahTiket
      */
     public void setJumlahTiket(int jumlahTiket) {
@@ -58,9 +64,10 @@ public abstract class Tiket {
 
     /**
      * method abstrak
+     * 
      * @param harga
      * @param jumlah
      * @return
      */
-    abstract double getTotal(double harga, int jumlah);
+    abstract int getTotal(int harga, int jumlah);
 }

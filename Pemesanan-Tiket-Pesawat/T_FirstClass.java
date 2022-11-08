@@ -7,7 +7,7 @@ import java.util.Scanner;
  * @version 1.0
  */
 public class T_FirstClass extends Tiket {
-    private double totalRun = 0;
+    private int totalRun = 0;
     Scanner in = new Scanner(System.in);
 
     /**
@@ -15,7 +15,7 @@ public class T_FirstClass extends Tiket {
      * ini constuctor T_First_Class untuk membuat objek tanpa parameter
      */
     public T_FirstClass() {
-        super(1000000.0);
+        super(1000000);
     }
 
     /**
@@ -24,7 +24,7 @@ public class T_FirstClass extends Tiket {
      * 
      * @param harga
      */
-    public T_FirstClass(Double harga) {
+    public T_FirstClass(int harga) {
         super(harga);
     }
 
@@ -44,7 +44,7 @@ public class T_FirstClass extends Tiket {
      * 
      * @return total harga tiket
      */
-    public double getTotalRun() {
+    public int getTotalRun() {
         return this.totalRun;
     }
 
@@ -53,7 +53,7 @@ public class T_FirstClass extends Tiket {
      * 
      * @param Subtotal
      */
-    public void setTotalRun(double Subtotal) {
+    public void setTotalRun(int Subtotal) {
         this.totalRun = Subtotal;
     }
 
@@ -63,8 +63,8 @@ public class T_FirstClass extends Tiket {
      * @param harga
      * @param jumlah
      */
-    public double getTotal(double harga, int jumlah) {
-        double totalSementara = (harga * jumlah);
+    public int getTotal(int harga, int jumlah) {
+        int totalSementara = (harga * jumlah);
         System.out.println("Subtotal: " + totalSementara);
         totalRun += totalSementara;
         return totalSementara;
@@ -76,8 +76,8 @@ public class T_FirstClass extends Tiket {
      * @param jumlah
      * @return
      */
-    public double deletePesanan(int jumlah) {
-        double temp = (getHargaTiket() * jumlah);
+    public int deletePesanan(int jumlah) {
+        int temp = (getHargaTiket() * jumlah);
         return temp;
     }
 }
