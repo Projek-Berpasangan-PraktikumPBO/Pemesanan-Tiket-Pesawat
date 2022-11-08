@@ -24,13 +24,19 @@ public class Pelanggan {
         this.totalTiket = totalTiket;
     }
 
-    public void setBill(double totalBayar, int totalTiket) {
-        System.out.println("");
+    public void setBill() {
+        System.out.println("+===================================+");
+        System.out.println("|                Bill               |");
+        System.out.println("+===================================+");
+        System.out.println("| Jumlah Tiket : " + this.totalTiket);
+        System.out.println("| Total : " + this.totalBayar);
+        System.out.println("| Kode Tiket : AUDIAIR" + kodeBill());
+        System.out.println("+===================================+");
     }
 
     public String kodeBill() {
         String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "0123456789" + "abcdefghijklmnopqrstuvxyz";
-        StringBuilder sb = new StringBuilder(12);
+        StringBuilder sb = new StringBuilder(5);
 
         for (int i = 0; i < 12; i++) {
             int index = (int) (AlphaNumericString.length() * Math.random());
