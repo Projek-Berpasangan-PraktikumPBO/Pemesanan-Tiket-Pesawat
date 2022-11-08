@@ -16,3 +16,5 @@ Author :
 3. go to folder target
 4. go to folder classes
 5. type this command
+
+image.png
