@@ -148,6 +148,7 @@ public class MAIN {
                             int jumTiket = in.nextInt();
                             if (delTiket == 1) {
                                 economy.setTotalRun(economy.getTotalRun() - economy.deletePesanan(jumTiket));
+                                economy.setJumlahTiket(economy.getJumlahTiket() - jumTiket);
                                 System.out.println(economy.getHargaTiket());
                             } else if (delTiket == 2) {
                                 bisnis.setTotalRun(bisnis.getTotalRun() - bisnis.deletePesanan(jumTiket));
