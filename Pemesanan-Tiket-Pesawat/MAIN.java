@@ -38,6 +38,28 @@ public class MAIN {
     }
 
     /**
+     * method ini akan mengembalikan jumlah dari tiap tiket
+     * 
+     * @param economy
+     * @param bisnis
+     * @param firstClass
+     */
+    public void totalTiket(int economy, int bisnis, int firstClass) {
+        if ((economy > 0) && (bisnis <= 0) && (firstClass <= 0)) {
+            System.out.println("| Tiket Ekonomi : " + economy + " tiket");
+        } else if ((economy > 0) && (bisnis > 0) && (firstClass <= 0)) {
+            System.out.println("| Tiket Ekonomi : " + economy + " tiket");
+            System.out.println("| Tiket Bisnis  : " + bisnis + " tiket");
+        } else if ((economy > 0) && (bisnis > 0) && (firstClass > 0)) {
+            System.out.println("| Tiket Ekonomi : " + economy + " tiket");
+            System.out.println("| Tiket Bisnis  : " + bisnis + " tiket");
+            System.out.println("| Tiket First Class  : " + firstClass + " tiket");
+        } else {
+            System.out.println("Anda tidak membeli tiket");
+        }
+    }
+
+    /**
      * method main yang akan menjalankan semua kode
      * 
      * @param args
@@ -46,13 +68,13 @@ public class MAIN {
         T_Economy economy = new T_Economy();
         T_Bisnis bisnis = new T_Bisnis();
         T_FirstClass firstClass = new T_FirstClass();
-        Pelanggan customer = new Pelanggan();
+        Pelanggan customer;
         MAIN m = new MAIN();
 
         Scanner in = new Scanner(System.in);
 
         int pilbang, menu;
-        double totalBayar;
+        int totalBayar, totalTiket;
 
         System.out.println("+===================================+");
         System.out.println("|Selamat Datang Di Maskapai AUDI AIR|");
@@ -86,42 +108,43 @@ public class MAIN {
 
                     int jumlah;
 
+                    System.out.println("+===================================+");
                     System.out.println("| Penerbangan Banda Aceh - Jakarta  |");
                     System.out.println("+===================================+");
                     m.menuTiket();
                     System.out.println("| 4. Hapus Pesanan                  |");
                     System.out.println("| 5. Selesai                        |");
                     System.out.println("+===================================+");
-                    System.out.print("Masukkan pilihan : ");
+                    System.out.print("| Masukkan pilihan : ");
                     int tiket = in.nextInt();
 
                     switch (tiket) {
                         case 1:
-                            System.out.println("Harga tiket : " + economy.getHargaTiket());
-                            System.out.print("Masukkan jumlah tiket yang ingin dipesan : ");
+                            System.out.println("| Harga tiket : " + economy.getHargaTiket());
+                            System.out.print("| Masukkan jumlah tiket yang ingin dipesan : ");
                             jumlah = in.nextInt();
                             economy.jumlah_tiket(jumlah);
                             System.out.println("+===================================+");
                             break;
                         case 2:
-                            System.out.println("Harga tiket : " + bisnis.getHargaTiket());
-                            System.out.print("Masukkan jumlah tiket yang ingin dipesan : ");
+                            System.out.println("| Harga tiket : " + bisnis.getHargaTiket());
+                            System.out.print("| Masukkan jumlah tiket yang ingin dipesan : ");
                             jumlah = in.nextInt();
                             bisnis.jumlah_tiket(jumlah);
                             System.out.println("+===================================+");
                             break;
                         case 3:
-                            System.out.println("Harga tiket : " + firstClass.getHargaTiket());
-                            System.out.print("Masukkan jumlah tiket yang ingin dipesan : ");
+                            System.out.println("| Harga tiket : " + firstClass.getHargaTiket());
+                            System.out.print("| Masukkan jumlah tiket yang ingin dipesan : ");
                             jumlah = in.nextInt();
                             firstClass.jumlah_tiket(jumlah);
                             System.out.println("+===================================+");
                             break;
                         case 4:
                             m.menuTiket();
-                            System.out.print("Masukkan tiket yang ingin anda hapus:");
+                            System.out.print("| Masukkan tiket yang ingin anda hapus:");
                             int delTiket = in.nextInt();
-                            System.out.print("Jumlah yang ingin dihapus :");
+                            System.out.print("| Jumlah yang ingin dihapus :");
                             int jumTiket = in.nextInt();
                             if (delTiket == 1) {
                                 economy.setTotalRun(economy.getTotalRun() - economy.deletePesanan(jumTiket));
@@ -139,8 +162,17 @@ public class MAIN {
                         case 5:
                             m.lagi = false;
                             totalBayar = economy.getTotalRun() + bisnis.getTotalRun() + firstClass.getTotalRun();
-                            System.out.println(totalBayar);
-                            System.out.println("Terimakasi sudah percaya pada maskapai kami");
+                            totalTiket = economy.getJumlahTiket() + bisnis.getJumlahTiket()
+                                    + firstClass.getJumlahTiket();
+                            customer = new Pelanggan(totalBayar, totalTiket);
+                            System.out.println("+===================================+");
+                            System.out.println("|                Bill               |");
+                            System.out.println("+===================================+");
+                            System.out.println("| Penerbangan Banda Aceh - Jakarta  |");
+                            m.totalTiket(economy.getJumlahTiket(), bisnis.getJumlahTiket(),
+                                    firstClass.getJumlahTiket());
+                            customer.setBill();
+                            System.out.println("---Terimakasi sudah percaya pada maskapai kami---");
                             break;
                         default:
                             System.out.println("Anda memasukkan opsi yang salah");
@@ -152,6 +184,7 @@ public class MAIN {
                     bisnis.setHarga(14500000);
                     firstClass.setHarga(50000000);
 
+                    System.out.println("+===================================+");
                     System.out.println("| Penerbangan Banda Aceh - Batam    |");
                     System.out.println("+===================================+");
                     m.menuTiket();
@@ -163,42 +196,57 @@ public class MAIN {
 
                     switch (tiket) {
                         case 1:
-                            System.out.println("Harga tiket : " + economy.getHargaTiket());
-                            System.out.print("Masukkan jumlah tiket yang ingin dipesan : ");
+                            System.out.println("| Harga tiket : " + economy.getHargaTiket());
+                            System.out.print("| Masukkan jumlah tiket yang ingin dipesan : ");
                             int jumlah = in.nextInt();
                             economy.jumlah_tiket(jumlah);
                             System.out.println("+===================================+");
                             break;
                         case 2:
-                            System.out.println("Harga tiket : " + bisnis.getHargaTiket());
-                            System.out.print("Masukkan jumlah tiket yang ingin dipesan : ");
+                            System.out.println("| Harga tiket : " + bisnis.getHargaTiket());
+                            System.out.print("| Masukkan jumlah tiket yang ingin dipesan : ");
                             jumlah = in.nextInt();
                             bisnis.jumlah_tiket(jumlah);
                             System.out.println("+===================================+");
                             break;
                         case 3:
-                            System.out.println("Harga tiket : " + firstClass.getHargaTiket());
-                            System.out.print("Masukkan jumlah tiket yang ingin dipesan : ");
+                            System.out.println("| Harga tiket : " + firstClass.getHargaTiket());
+                            System.out.print("| Masukkan jumlah tiket yang ingin dipesan : ");
                             jumlah = in.nextInt();
                             firstClass.jumlah_tiket(jumlah);
                             System.out.println("+===================================+");
                             break;
                         case 4:
-                            System.out.print("Masukkan tiket yang ingin anda hapus:");
-                            String delTiket = in.next();
-                            System.out.print("Jumlah yang ingin dihapus :");
+                            m.menuTiket();
+                            System.out.print("| Masukkan tiket yang ingin anda hapus:");
+                            int delTiket = in.nextInt();
+                            System.out.print("| Jumlah yang ingin dihapus :");
                             int jumTiket = in.nextInt();
-                            if (delTiket.equalsIgnoreCase("ekonomi")) {
+                            if (delTiket == 1) {
                                 economy.setTotalRun(economy.getTotalRun() - economy.deletePesanan(jumTiket));
                                 System.out.println(economy.getHargaTiket());
+                            } else if (delTiket == 2) {
+                                bisnis.setTotalRun(bisnis.getTotalRun() - bisnis.deletePesanan(jumTiket));
+                                System.out.println(bisnis.getHargaTiket());
+                            } else if (delTiket == 3) {
+                                firstClass.setTotalRun(firstClass.getTotalRun() - firstClass.deletePesanan(jumTiket));
+                                System.out.println(firstClass.getHargaTiket());
                             } else {
                                 System.out.println("error");
                             }
-                            break;
                         case 5:
                             m.lagi = false;
                             totalBayar = economy.getTotalRun() + bisnis.getTotalRun() + firstClass.getTotalRun();
-                            System.out.println(totalBayar);
+                            totalTiket = economy.getJumlahTiket() + bisnis.getJumlahTiket()
+                                    + firstClass.getJumlahTiket();
+                            customer = new Pelanggan(totalBayar, totalTiket);
+                            System.out.println("+===================================+");
+                            System.out.println("|                Bill               |");
+                            System.out.println("+===================================+");
+                            System.out.println("| Penerbangan Banda Aceh - Batam    |");
+                            m.totalTiket(economy.getJumlahTiket(), bisnis.getJumlahTiket(),
+                                    firstClass.getJumlahTiket());
+                            customer.setBill();
                             System.out.println("Terimakasi sudah percaya pada maskapai kami");
                             break;
                         default:
@@ -211,6 +259,7 @@ public class MAIN {
                     bisnis.setHarga(15000000);
                     firstClass.setHarga(30000000);
 
+                    System.out.println("+===================================+");
                     System.out.println("| Penerbangan Banda Aceh - Medan    |");
                     System.out.println("+===================================+");
                     m.menuTiket();
@@ -222,50 +271,67 @@ public class MAIN {
 
                     switch (tiket) {
                         case 1:
-                            System.out.println("Harga tiket : " + economy.getHargaTiket());
-                            System.out.print("Masukkan jumlah tiket yang ingin dipesan : ");
+                            System.out.println("| Harga tiket : " + economy.getHargaTiket());
+                            System.out.print("| Masukkan jumlah tiket yang ingin dipesan : ");
                             int jumlah = in.nextInt();
                             economy.jumlah_tiket(jumlah);
                             System.out.println("+===================================+");
                             break;
                         case 2:
-                            System.out.println("Harga tiket : " + bisnis.getHargaTiket());
-                            System.out.print("Masukkan jumlah tiket yang ingin dipesan : ");
+                            System.out.println("| Harga tiket : " + bisnis.getHargaTiket());
+                            System.out.print("| Masukkan jumlah tiket yang ingin dipesan : ");
                             jumlah = in.nextInt();
                             bisnis.jumlah_tiket(jumlah);
                             System.out.println("+===================================+");
                             break;
                         case 3:
-                            System.out.println("Harga tiket : " + firstClass.getHargaTiket());
+                            System.out.println("| Harga tiket : " + firstClass.getHargaTiket());
                             System.out.print("Masukkan jumlah tiket yang ingin dipesan : ");
                             jumlah = in.nextInt();
                             firstClass.jumlah_tiket(jumlah);
                             System.out.println("+===================================+");
                             break;
                         case 4:
-                            System.out.print("Masukkan tiket yang ingin anda hapus:");
-                            String delTiket = in.next();
-                            System.out.print("Jumlah yang ingin dihapus :");
+                            m.menuTiket();
+                            System.out.print("| Masukkan tiket yang ingin anda hapus:");
+                            int delTiket = in.nextInt();
+                            System.out.print("| Jumlah yang ingin dihapus :");
                             int jumTiket = in.nextInt();
-                            if (delTiket.equalsIgnoreCase("ekonomi")) {
+                            if (delTiket == 1) {
                                 economy.setTotalRun(economy.getTotalRun() - economy.deletePesanan(jumTiket));
                                 System.out.println(economy.getHargaTiket());
+                            } else if (delTiket == 2) {
+                                bisnis.setTotalRun(bisnis.getTotalRun() - bisnis.deletePesanan(jumTiket));
+                                System.out.println(bisnis.getHargaTiket());
+                            } else if (delTiket == 3) {
+                                firstClass.setTotalRun(firstClass.getTotalRun() - firstClass.deletePesanan(jumTiket));
+                                System.out.println(firstClass.getHargaTiket());
                             } else {
                                 System.out.println("error");
                             }
-                            break;
                         case 5:
                             m.lagi = false;
                             totalBayar = economy.getTotalRun() + bisnis.getTotalRun() + firstClass.getTotalRun();
-                            System.out.println(totalBayar);
+                            totalTiket = economy.getJumlahTiket() + bisnis.getJumlahTiket()
+                                    + firstClass.getJumlahTiket();
+                            customer = new Pelanggan(totalBayar, totalTiket);
+                            System.out.println("+===================================+");
+                            System.out.println("|                Bill               |");
+                            System.out.println("+===================================+");
+                            System.out.println("| Penerbangan Banda Aceh - Medan    |");
+                            m.totalTiket(economy.getJumlahTiket(), bisnis.getJumlahTiket(),
+                                    firstClass.getJumlahTiket());
+                            customer.setBill();
                             System.out.println("Terimakasi sudah percaya pada maskapai kami");
                             break;
                         default:
                             System.out.println("Anda memasukkan opsi yang salah");
                     }
                 } while (m.lagi);
+            } else {
+                System.out.println("Anda memasukkan opsi yang salah");
             }
         }
-
+        in.close();
     }
 }

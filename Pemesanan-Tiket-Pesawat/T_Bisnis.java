@@ -32,7 +32,7 @@ public class T_Bisnis extends Tiket {
      * @return jumlah tiket yang dipsan
      */
     public void jumlah_tiket(int jumlah) {
-        super.setJumlahTiket(jumlah);
+        super.setJumlahTiket(getJumlahTiket() + jumlah);
         getTotal(super.getHargaTiket(), super.getJumlahTiket());
     }
 
@@ -62,7 +62,7 @@ public class T_Bisnis extends Tiket {
      */
     public int getTotal(int harga, int jumlah) {
         int totalSementara = (harga * jumlah);
-        System.out.println("Subtotal: " + totalSementara);
+        System.out.println("| Subtotal: " + totalSementara);
         totalRun += totalSementara;
         return totalSementara;
     }
