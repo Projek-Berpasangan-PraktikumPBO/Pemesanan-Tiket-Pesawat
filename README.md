@@ -12,3 +12,7 @@ Author :
 # How To Run This Application
 
 1. Clone Repository
+2. go to folder Pemesanan-Tiket-Pesawat/Pemesanan-Tiket-Pesawat
+3. go to folder target
+4. go to folder classes
+5. type this command
