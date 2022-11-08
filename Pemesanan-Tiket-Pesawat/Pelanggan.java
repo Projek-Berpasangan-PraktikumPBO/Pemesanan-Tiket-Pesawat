@@ -24,6 +24,9 @@ public class Pelanggan {
         this.totalTiket = totalTiket;
     }
 
+    /**
+     * untuk menampilkan bill
+     */
     public void setBill() {
         System.out.println("| Jumlah Tiket : " + this.totalTiket);
         System.out.println("| Total : Rp" + this.totalBayar);
@@ -31,6 +34,11 @@ public class Pelanggan {
         System.out.println("+===================================+");
     }
 
+    /**
+     * generate kode bill
+     * 
+     * @return kodebill
+     */
     public String kodeBill() {
         String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "0123456789" + "abcdefghijklmnopqrstuvxyz";
         StringBuilder sb = new StringBuilder(5);
