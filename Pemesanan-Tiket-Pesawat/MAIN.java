@@ -61,6 +61,8 @@ public class MAIN {
             System.out.println("| Tiket First Class  : " + firstClass + " tiket");
         } else if ((economy <= 0) && (bisnis <= 0) && (firstClass > 0)) {
             System.out.println("| Tiket First Class  : " + firstClass + " tiket");
+        } else if ((economy <= 0) && (bisnis <= 0) && (firstClass <= 0)) {
+            System.out.println("| Anda tidak memesan tiket");
         } else {
             System.out.println("Anda tidak membeli tiket");
         }
